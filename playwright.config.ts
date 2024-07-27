@@ -12,8 +12,7 @@ export default defineConfig({
    reporter: 'html',
   use: {
     baseURL: 'http://127.0.0.1:3000',
-    // trace: 'on-first-retry',
-    trace: 'on',
+    trace: 'on-first-retry'
   },
   projects: [
     {

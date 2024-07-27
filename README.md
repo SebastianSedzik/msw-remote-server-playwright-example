@@ -8,6 +8,7 @@ It uses an unstable version of MSW created from the https://github.com/mswjs/msw
 
 1. Clone the repository:
   ```sh
+  git@github.com:SebastianSedzik/msw-remote-server-playwright-example.git
   ```
 2. Install dependencies:
   ```sh
@@ -21,13 +22,13 @@ It uses an unstable version of MSW created from the https://github.com/mswjs/msw
 ## Overview
 This repository includes a server application and Playwright tests to cover its functionalities:
 
-1. `./server-app` An application (running on 3000 port) that exposes two paths:
+1. [./server-app](https://github.com/SebastianSedzik/msw-remote-server-playwright-example/blob/master/server-app/index.js) An application that exposes two paths:
     - `/`: Main path with links to sub-pages
     - `/recipes`: A page that displays a list of recipes fetched from the https://dummyjson.com API. The list of recipes is fetched on the server side.
 2. `./tests`: Playwright tests using MSW Remote Server API to mock server-app requests:
-    - `./server-mocked.js`: A file responsible for running the server app with MSW.
-    - `./setup.ts`: A file responsible for connecting to the server created by `./server-mocked.js` from the test level.
-    - `./example.spec.ts`: An example Playwright test that mocks calls to the https://dummyjson.com API.
+    - [./server-mocked.js](https://github.com/SebastianSedzik/msw-remote-server-playwright-example/blob/master/tests/server-mocked.js): A file responsible for running the server app with MSW.
+    - [./setup.ts](https://github.com/SebastianSedzik/msw-remote-server-playwright-example/blob/master/tests/setup.ts): A file responsible for connecting to the server created by `./server-mocked.js` from the test level.
+    - [./example.spec.ts](https://github.com/SebastianSedzik/msw-remote-server-playwright-example/blob/master/tests/example.spec.ts): An example Playwright test that mocks calls to the https://dummyjson.com API.
 
 ## Running the app (normal mode)
 In this mode, the application will make calls to the real API.
@@ -35,6 +36,7 @@ In this mode, the application will make calls to the real API.
 ```sh
 pnpm start
 ```
+> After successfully running the command, the app should be accessible at http://localhost:3000.
 
 ## Running app (mocked mode)
 In this mode, the application will use MSW handlers instead of making calls to the real API.
@@ -42,3 +44,4 @@ In this mode, the application will use MSW handlers instead of making calls to t
 ```sh
 pnpm start-mocked
 ```
+> After successfully running the command, the app should be accessible at http://localhost:3000.
