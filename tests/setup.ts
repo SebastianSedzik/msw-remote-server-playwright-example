@@ -1,20 +1,20 @@
 import { test } from '@playwright/test';
 import { setupRemoteServer, SetupRemoteServerApi } from 'msw/node';
 
-const server = setupRemoteServer();
+const remote = setupRemoteServer();
 
 export const setupMockServer = (): SetupRemoteServerApi => {
     test.beforeAll(async () => {
-        await server.listen({ port: 3001 });
+        await remote.listen();
     });
-
+    
     test.afterEach(async () => {
-        await server.resetHandlers();
+        await remote.resetHandlers();
     })
-
+    
     test.afterAll(async () => {
-        await server.close();
+        await remote.close();
     });
 
-    return server;
+    return remote;
 }

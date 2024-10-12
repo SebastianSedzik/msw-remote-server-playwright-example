@@ -8,7 +8,7 @@
   "devDependencies": {
     "@playwright/test": "^1.45.3",
     "@types/node": "^20.14.12",
-    "msw": "./msw-2.2.1-rc.remote-server.tgz"
+    "msw": "./msw-2.4.2-rc.ws-sync-handlers.tgz"
   },
   "scripts": {
     "start": "node server-app/index.js",

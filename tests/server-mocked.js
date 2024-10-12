@@ -31,7 +31,7 @@ const server = setupServer(
 );
 
 server.listen({
-    remotePort: 3001
+    remote: true
 });
 
 /**
