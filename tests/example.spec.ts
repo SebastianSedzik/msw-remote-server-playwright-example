@@ -4,11 +4,11 @@ import { http, HttpResponse } from 'msw';
 import { RecipePage } from './pages/Recipe.page';
 
 test.describe('Recipes', () => {
-  const server = setupMockServer();
+  const remote = setupMockServer();
 
   test('List of recipes should be displayed', async ({ page }) => {
     // Given: RecipesApi API returns list of recipes
-    server.use(
+    remote.use(
       http.get('https://dummyjson.com/recipes', () => HttpResponse.json({
         recipes: [{
           name: 'Spaghetti Carbonara',
@@ -29,7 +29,7 @@ test.describe('Recipes', () => {
 
   test.skip('Error alert should be displayed when failed to load recipes', async ({ page }) => {
     // Given: RecipesApi returns an error
-    server.use(
+    remote.use(
       http.get('https://dummyjson.com/recipes', () => HttpResponse.error())
     );
 
